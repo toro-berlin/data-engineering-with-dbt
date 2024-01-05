@@ -3,33 +3,36 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
-		"args": { 
-			"VARIANT": "3.10",      // Set Python version here
+		"args": {
+			"VARIANT": "3.10", // Set Python version here
 			"NODE_VERSION": "lts/*"
 		}
 	},
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"python.defaultInterpreterPath": "/usr/local/bin/python",
-				"python.linting.enabled": true,
-				"python.linting.pylintEnabled": true,
-				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
-				"python.linting.pylintArgs": [
-					"--disable=C0111"
-				]
+				"workbench.startupEditor": "none",
+				"workbench.colorCustomizations": {},
+				"files.autoSave": "onFocusChange",
+				"python.languageServer": "Pylance",
+				"[python]": {
+					"editor.formatOnSave": true,
+					"editor.defaultFormatter": "charliermarsh.ruff",
+					"editor.codeActionsOnSave": {
+						"source.fixAll": "explicit",
+						"source.organizeImports": "explicit"
+					},
+				},
+				"editor.inlineSuggest.enabled": true,
+				"editor.accessibilitySupport": "off",
+				"editor.bracketPairColorization.enabled": false,
+				"terminal.integrated.inheritEnv": false
 			},
 			"extensions": [
 				"ms-python.python",
-				"ms-python.vscode-pylance"
+				"ms-python.vscode-pylance",
+				"charliermarsh.ruff",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	},
